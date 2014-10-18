@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <!--服务配置：对应每一个Delivery，即每增加一个Delivery，则须增加一个Service-->
+  <Services>
+    <!--表示单个服务，服务名称即为公司的名称-->
+    <Service>
+      <!--服务名称-->
+      <Name>TEST</Name>
+      <!--时间间隔（休息多少时间后开始从快递100平台查询数据），以分钟为单位-->
+      <!--<Interval>10</Interval>-->
+      <!--时间间隔的单位：second,minute,hour-->
+      <Unit>hour</Unit>
+      <!--是否立即启动：0，否；1，是-->
+      <DoWorkAtStart>1</DoWorkAtStart>
+      <!--只运行一次：0，否；1，是-->
+      <RunOnlyOnce>0</RunOnlyOnce>
+      <!--工作类型：固定配置-->
+      <Type>FormTrackingService.Expresss100ServiceModule,FormTrackingService</Type>
+    </Service>
+  </Services>
+</Root>

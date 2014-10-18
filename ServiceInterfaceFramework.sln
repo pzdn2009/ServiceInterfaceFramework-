@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceInterfaceFramework", "ServiceInterfaceFramework\ServiceInterfaceFramework.csproj", "{976D45A9-E481-4B96-BA7A-D963CDEE8644}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceInterfaceFramework.Tests", "ServiceInterfaceFramework.Tests\ServiceInterfaceFramework.Tests.csproj", "{3CE9E3B8-3140-4861-94A8-7FD9C77781AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assembly", "Assembly", "{A5C6DF16-FB06-4118-BAE4-05FD8E48182D}"
+	ProjectSection(SolutionItems) = preProject
+		Assembly\log4net.dll = Assembly\log4net.dll
+		Assembly\Moq.dll = Assembly\Moq.dll
+		Assembly\nunit.framework.dll = Assembly\nunit.framework.dll
+		Assembly\Should.dll = Assembly\Should.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceInterfaceFramework.Winform", "ServiceInterfaceFramework.Winform\ServiceInterfaceFramework.Winform.csproj", "{355A3CD9-F44A-49B1-BC06-F1212EB8B5B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{976D45A9-E481-4B96-BA7A-D963CDEE8644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{976D45A9-E481-4B96-BA7A-D963CDEE8644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{976D45A9-E481-4B96-BA7A-D963CDEE8644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{976D45A9-E481-4B96-BA7A-D963CDEE8644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE9E3B8-3140-4861-94A8-7FD9C77781AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE9E3B8-3140-4861-94A8-7FD9C77781AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE9E3B8-3140-4861-94A8-7FD9C77781AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE9E3B8-3140-4861-94A8-7FD9C77781AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{355A3CD9-F44A-49B1-BC06-F1212EB8B5B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{355A3CD9-F44A-49B1-BC06-F1212EB8B5B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{355A3CD9-F44A-49B1-BC06-F1212EB8B5B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{355A3CD9-F44A-49B1-BC06-F1212EB8B5B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

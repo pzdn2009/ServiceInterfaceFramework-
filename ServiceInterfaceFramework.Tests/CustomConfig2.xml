@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <!--服务配置：对应每一个Delivery，即每增加一个Delivery，则须增加一个Service-->
+  <Services>
+    <!--表示单个服务，服务名称即为公司的名称-->
+  </Services>
+</Root>
