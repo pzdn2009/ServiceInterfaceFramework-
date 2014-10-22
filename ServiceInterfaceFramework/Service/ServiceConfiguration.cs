@@ -19,7 +19,7 @@ namespace ServiceInterfaceFramework.Service
         public static IEnumerable<ServiceConfigElement> GetConfig(string fileName = "")
         {
             var name = String.IsNullOrEmpty(fileName) ? Define.CustomConfig : fileName;
-            if (name.FileExist())
+            if (!name.FileExist())
             {
                 throw new FileNotFoundException("找不到服务配置文件！");
             }
