@@ -132,7 +132,7 @@
     <Compile Include="Extensions\FileExtension.cs" />
     <Compile Include="Common\RegexHelper.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
-    <Compile Include="Common\TransactionScopeBlock.cs" />
+    <Compile Include="Common\DistributionTransactionScopeBlock.cs" />
     <Compile Include="Common\Guard.cs" />
     <Compile Include="WebReq\WebReqUtility.cs" />
     <Compile Include="Common\XmlHelper.cs" />

@@ -33,7 +33,7 @@ namespace ServiceInterfaceFramework.Tests.Service
         }
 
         [Test]
-        [ExpectedException(typeof(ServiceException), ExpectedMessage = "配置类型为空！")]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void Constructor_ConfigElement_Type_NotExist()
         {
             ServiceConfigElement configElement = new ServiceConfigElement()

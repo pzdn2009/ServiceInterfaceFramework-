@@ -5,17 +5,26 @@ using System.Text;
 
 namespace ServiceInterfaceFramework.Common
 {
+    /// <summary>
+    /// 公共断言
+    /// </summary>
     public static class Guard
     {
+        /// <summary>
+        /// 必须为TRUE
+        /// </summary>
+        /// <param name="condition">条件</param>
         public static void IsTrue(bool condition)
         {
-            if (condition == false)
-            {
-                throw new ArgumentException("The condition supplied is false");
-            }
+            IsTrue(condition, "条件为False");
         }
 
-        public static void IsTrue(bool condition, String message)
+        /// <summary>
+        /// 必须为TRUE
+        /// </summary>
+        /// <param name="condition">条件</param>
+        /// <param name="message">自定义消息</param>
+        public static void IsTrue(bool condition, string message)
         {
             if (!condition)
             {
@@ -23,15 +32,21 @@ namespace ServiceInterfaceFramework.Common
             }
         }
 
+        /// <summary>
+        /// 必须为FALSE
+        /// </summary>
+        /// <param name="condition">条件</param>
         public static void IsFalse(bool condition)
         {
-            if (condition)
-            {
-                throw new ArgumentException("The condition supplied is true");
-            }
+            IsFalse(condition, "条件为True");
         }
 
-        public static void IsFalse(bool condition, String message)
+        /// <summary>
+        /// 必须为FALSE
+        /// </summary>
+        /// <param name="condition">条件</param>
+        /// <param name="message">自定义消息</param>
+        public static void IsFalse(bool condition, string message)
         {
             if (condition)
             {
@@ -39,23 +54,43 @@ namespace ServiceInterfaceFramework.Common
             }
         }
 
-        public static void IsNotNull(Object obj, string message)
+        /// <summary>
+        /// 不能为空
+        /// </summary>
+        /// <param name="obj">判断的对象</param>
+        public static void IsNotNull(object obj)
+        {
+            IsNotNull(obj, "参数不能为空！");
+        }
+
+        /// <summary>
+        /// 不能为空
+        /// </summary>
+        /// <param name="obj">判断的对象</param>
+        /// <param name="message">自定义消息</param>
+        public static void IsNotNull(object obj, string message)
         {
             if (obj == null)
             {
-                throw new ArgumentNullException(message);
+                throw new ArgumentNullException("", message);
             }
         }
 
-        public static void IsNotNull(Object obj)
+        /// <summary>
+        /// 为空
+        /// </summary>
+        /// <param name="obj">判断的对象</param>
+        public static void IsNull(object obj)
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException("The argument provided cannot be null.");
-            }
+            IsNull(obj, "参数不能为空！");
         }
 
-        public static void IsNull(Object obj, string message)
+        /// <summary>
+        /// 为空
+        /// </summary>
+        /// <param name="obj">判断的对象</param>
+        /// <param name="message">自定义消息</param>
+        public static void IsNull(object obj, string message)
         {
             if (obj != null)
             {
@@ -63,19 +98,26 @@ namespace ServiceInterfaceFramework.Common
             }
         }
 
-        public static void IsNull(Object obj)
-        {
-            if (obj != null)
-            {
-                throw new ArgumentNullException("The argument provided cannot be null.");
-            }
-        }
-
+        /// <summary>
+        /// 是否为其中之一
+        /// </summary>
+        /// <typeparam name="T">泛型</typeparam>
+        /// <param name="obj">判断对象</param>
+        /// <param name="possibles">列表集合</param>
+        /// <returns></returns>
         public static bool IsOneOfSupplied<T>(T obj, List<T> possibles)
         {
-            return IsOneOfSupplied<T>(obj, possibles, "The object does not have one of the supplied values.");
+            return IsOneOfSupplied<T>(obj, possibles, "列表不包含指定的集合");
         }
 
+        /// <summary>
+        /// 是否为其中之一
+        /// </summary>
+        /// <typeparam name="T">泛型</typeparam>
+        /// <param name="obj">判断对象</param>
+        /// <param name="possibles">列表集合</param>
+        /// <param name="message">自定义消息</param>
+        /// <returns></returns>
         public static bool IsOneOfSupplied<T>(T obj, List<T> possibles, string message)
         {
             foreach (T possible in possibles)

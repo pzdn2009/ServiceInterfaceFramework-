@@ -13,7 +13,7 @@ namespace ServiceInterfaceFramework.Tests
         [Test]
         public void CustomConfig_Value()
         {
-            var path = @"E:\项目集合\ServiceInterfaceFramework\ServiceInterfaceFramework.Tests\bin\Debug";
+            var path = AppDomain.CurrentDomain.BaseDirectory;
             var val = path + @"\" + "CustomConfig.xml";
             Define.CustomConfig.ShouldEqual(val);
         }

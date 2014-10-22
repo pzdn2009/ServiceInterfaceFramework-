@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml.Linq;
 using ServiceInterfaceFramework.Common;
 using System.IO;
+using System.Reflection;
 
 namespace ServiceInterfaceFramework.Configuration
 {
@@ -21,21 +22,21 @@ namespace ServiceInterfaceFramework.Configuration
         /// <summary>
         /// 根据XML文件，生成一个配置信息
         /// </summary>
-        /// <param name="xmlFile"></param>
-        /// <param name="configType"></param>
-        /// <returns></returns>
-        public static IEnumerable<T> XmlConfig<T>(string xmlFile, string elementName, Type configType) where T : ConfigBase
+        /// <param name="xmlFileName">XML文件路径</param>
+        /// <param name="parentElementName">父元素名称</param>
+        /// <returns>配置对象列表</returns>
+        public static IEnumerable<T> XmlConfig<T>(string xmlFileName, string parentElementName) where T : ConfigBase
         {
-            if (!xmlFile.FileExist())
+            if (!xmlFileName.FileExist())
             {
-                throw new FileNotFoundException(xmlFile);
+                throw new FileNotFoundException(xmlFileName);
             }
 
-            var xmlParentElements = XElement.Load(xmlFile).Descendants(elementName);
+            var xmlParentElements = XElement.Load(xmlFileName).Descendants(parentElementName);
             var list = new List<T>();
             foreach (var element in xmlParentElements)
             {
-                var instance = Activator.CreateInstance(configType) as ConfigBase;
+                var instance = Activator.CreateInstance(typeof(T)) as ConfigBase;
                 instance.ResolveProperty(element);
                 list.Add((T)instance);
             }
@@ -47,8 +48,15 @@ namespace ServiceInterfaceFramework.Configuration
             var type = this.GetType();
             foreach (var pro in type.GetProperties())
             {
-                pro.SetValue(this, xmlDoc.Element(pro.Name).Value, null);
+                SetValue(this, pro, xmlDoc.Element(pro.Name).Value);
             }
+        }
+
+        private static void SetValue(object entity, PropertyInfo property, object value)
+        {
+            var t = Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType;
+            var safeValue = (value == null || value.ToString().Equals(string.Empty)) ? null : Convert.ChangeType(value, t);
+            property.SetValue(entity, safeValue, null);
         }
     }
 }

@@ -21,9 +21,6 @@ namespace ServiceInterfaceFramework.Common
             var sf = new System.Diagnostics.StackFrame(stackDeep);
             var method = sf.GetMethod();
 
-            Console.WriteLine(method.DeclaringType.Name);
-            Console.WriteLine(method.Name);
-
             WriteDebug(method.DeclaringType.Name, method.Name, message);
         }
 
@@ -42,9 +39,6 @@ namespace ServiceInterfaceFramework.Common
         {
             var sf = new System.Diagnostics.StackFrame(stackDeep);
             var method = sf.GetMethod();
-
-            Console.WriteLine(method.DeclaringType.Name);
-            Console.WriteLine(method.Name);
 
             WriteError(method.DeclaringType.Name, method.Name, e);
         }

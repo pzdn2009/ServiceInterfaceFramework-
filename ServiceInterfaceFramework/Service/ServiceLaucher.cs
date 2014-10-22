@@ -146,16 +146,23 @@ namespace ServiceInterfaceFramework.Service
             {
                 lock (dictServices)
                 {
-                    ServiceHostProxy proxy = null;
-                    if (dictServices.ContainsKey(serviceElement.Name))
-                    {
-                        proxy = dictServices[serviceElement.Name];
-                    }
-                    else
-                    {
-                        proxy = new ServiceHostProxy(serviceElement);
-                        dictServices[serviceElement.Name] = proxy;
-                    }
+                    //ServiceHostProxy proxy = null;
+                    //if (dictServices.ContainsKey(serviceElement.Name))
+                    //{
+                    //    proxy = dictServices[serviceElement.Name];
+                    //}
+                    //else
+                    //{
+                    //    proxy = new ServiceHostProxy(serviceElement);
+                    //    dictServices[serviceElement.Name] = proxy;
+                    //}
+                    //proxy.Start();
+                    var proxy = dictServices.GetOrAddGet<ServiceHostProxy>(serviceElement.Name,
+                        () =>
+                        {
+                            return new ServiceHostProxy(serviceElement);
+                        });
+
                     proxy.Start();
                 }
                 LogHelper.WriteDebug(string.Format("Service {0} started at StartService", serviceElement.Name));

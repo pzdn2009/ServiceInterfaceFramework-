@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <MyNameTest>
+    <Name>daniu a!</Name>
+    <Age>25</Age>
+  </MyNameTest>
+  <MyNameTest>
+    <Name>daniu a2!</Name>
+    <Age></Age>
+  </MyNameTest>
+  <MyNameTest>
+    <Name>daniu a3!</Name>
+    <Age>27</Age>
+  </MyNameTest>
+</Root>

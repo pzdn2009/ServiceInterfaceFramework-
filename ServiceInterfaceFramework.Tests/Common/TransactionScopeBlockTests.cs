@@ -15,7 +15,16 @@ namespace ServiceInterfaceFramework.Tests.Common
         [Test]
         public void New_Test_Throw()
         {
-            TransactionScopeBlock.New(() =>
+            DistributionTransactionScopeBlock.New(() =>
+            {
+                throw new Exception();
+            });
+        }
+
+        [Test]
+        public void NewWithLock_Test_Throw()
+        {
+            DistributionTransactionScopeBlock.NewWithLock(() =>
             {
                 throw new Exception();
             });

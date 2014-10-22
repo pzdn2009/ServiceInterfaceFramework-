@@ -62,15 +62,19 @@
     <Compile Include="Cache\DataTableUtilsTests.cs" />
     <Compile Include="Cache\MemoryCacheManagerTests.cs" />
     <Compile Include="Common\ConfigReaderTests.cs" />
+    <Compile Include="Common\GuardTests.cs" />
     <Compile Include="Common\TransactionScopeBlockTests.cs" />
     <Compile Include="Common\TryCatchUtilityTests.cs" />
     <Compile Include="Common\XmlHelperTests.cs" />
+    <Compile Include="Configuration\DemoConfigTests.cs" />
     <Compile Include="DefineTests.cs" />
+    <Compile Include="Extensions\DictionaryExtensionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ServiceConfigElementTests.cs" />
     <Compile Include="Service\ServiceConfigurationTests.cs" />
     <Compile Include="Service\ServiceHostProxyTests.cs" />
     <Compile Include="Service\ServiceLaucherTests.cs" />
+    <Compile Include="Service\ServiceModuleBaseTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ServiceInterfaceFramework\ServiceInterfaceFramework.csproj">
@@ -92,6 +96,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="CustomConfig5.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DemoConfigTest3.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DemoConfigTest2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DemoConfigTest.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
