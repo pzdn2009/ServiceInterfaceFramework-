@@ -45,3 +45,5 @@ Temporary Items
 *.dll
 packages
 debug
+AlibabaPlatform/
+AlibabaPlatform.*

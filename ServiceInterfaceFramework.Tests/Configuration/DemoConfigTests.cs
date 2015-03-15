@@ -17,6 +17,7 @@ namespace ServiceInterfaceFramework.Tests.Configuration
         public void XmlConfig_File_NotExist_Throw()
         {
             var xml = AppDomain.CurrentDomain.BaseDirectory + "\\DemoConfigTestAnyway.xml";
+            
             ConfigBase.XmlConfig<DemoConfig>(xml, "Root");
         }
 

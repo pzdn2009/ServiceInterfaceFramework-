@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceInterfaceFramework.T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assembly", "Assembly", "{A5C6DF16-FB06-4118-BAE4-05FD8E48182D}"
 	ProjectSection(SolutionItems) = preProject
+		Assembly\eBay.Service.dll = Assembly\eBay.Service.dll
+		Assembly\eBay.Service.SDK.Attribute.dll = Assembly\eBay.Service.SDK.Attribute.dll
 		Assembly\log4net.dll = Assembly\log4net.dll
 		Assembly\Moq.dll = Assembly\Moq.dll
 		Assembly\nunit.framework.dll = Assembly\nunit.framework.dll
@@ -16,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assembly", "Assembly", "{A5
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceInterfaceFramework.Winform", "ServiceInterfaceFramework.Winform\ServiceInterfaceFramework.Winform.csproj", "{355A3CD9-F44A-49B1-BC06-F1212EB8B5B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbayAPILibrary", "EbayAPILib\EbayAPILibrary.csproj", "{FC76F004-1B24-4205-85AB-DAD3E47CA71A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,10 @@ Global
 		{355A3CD9-F44A-49B1-BC06-F1212EB8B5B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{355A3CD9-F44A-49B1-BC06-F1212EB8B5B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{355A3CD9-F44A-49B1-BC06-F1212EB8B5B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC76F004-1B24-4205-85AB-DAD3E47CA71A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC76F004-1B24-4205-85AB-DAD3E47CA71A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC76F004-1B24-4205-85AB-DAD3E47CA71A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC76F004-1B24-4205-85AB-DAD3E47CA71A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
