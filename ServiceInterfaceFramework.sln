@@ -21,6 +21,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceInterfaceFramework.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbayAPILibrary", "EbayAPILib\EbayAPILibrary.csproj", "{FC76F004-1B24-4205-85AB-DAD3E47CA71A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WCF", "WCF", "{F10BB947-BDBA-4B1F-87D4-F3CB01A6D371}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DualWithCallback", "DualWithCallback", "{F992E0F8-5D4F-43A0-9B76-B69E6BC2DD71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryUploadService", "InventoryUploadService\InventoryUploadService.csproj", "{47C33D89-EC75-48CB-8B06-6BB5F8B04276}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryUploadClient", "InventoryUploadClient\InventoryUploadClient.csproj", "{1AC4989F-E385-4818-ABE0-C656FADF1EC8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{47C33D89-EC75-48CB-8B06-6BB5F8B04276} = {47C33D89-EC75-48CB-8B06-6BB5F8B04276}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,8 +54,21 @@ Global
 		{FC76F004-1B24-4205-85AB-DAD3E47CA71A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC76F004-1B24-4205-85AB-DAD3E47CA71A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC76F004-1B24-4205-85AB-DAD3E47CA71A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47C33D89-EC75-48CB-8B06-6BB5F8B04276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47C33D89-EC75-48CB-8B06-6BB5F8B04276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47C33D89-EC75-48CB-8B06-6BB5F8B04276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47C33D89-EC75-48CB-8B06-6BB5F8B04276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC4989F-E385-4818-ABE0-C656FADF1EC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC4989F-E385-4818-ABE0-C656FADF1EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC4989F-E385-4818-ABE0-C656FADF1EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC4989F-E385-4818-ABE0-C656FADF1EC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F992E0F8-5D4F-43A0-9B76-B69E6BC2DD71} = {F10BB947-BDBA-4B1F-87D4-F3CB01A6D371}
+		{47C33D89-EC75-48CB-8B06-6BB5F8B04276} = {F992E0F8-5D4F-43A0-9B76-B69E6BC2DD71}
+		{1AC4989F-E385-4818-ABE0-C656FADF1EC8} = {F992E0F8-5D4F-43A0-9B76-B69E6BC2DD71}
 	EndGlobalSection
 EndGlobal
