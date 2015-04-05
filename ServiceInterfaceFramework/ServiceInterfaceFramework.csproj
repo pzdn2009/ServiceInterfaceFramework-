@@ -176,6 +176,7 @@
     <Compile Include="Service\ServiceLaucher.cs" />
     <Compile Include="Service\ServiceModuleBase.cs" />
     <Compile Include="Service\ServiceStatusInfo.cs" />
+    <Compile Include="WindowService\WinServiceControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BLL\" />
