@@ -18,7 +18,7 @@ namespace ServiceInterfaceFramework.Common
             }
             catch (Exception ex)
             {
-                LogHelper.WriteError(ex, 2);
+                LogHelper.Error(ex, 2);
             }
         }
 
@@ -30,7 +30,7 @@ namespace ServiceInterfaceFramework.Common
             }
             catch (Exception ex)
             {
-                LogHelper.WriteError(ex, 2);
+                LogHelper.Error(ex, 2);
                 return default(T);
             }
         }

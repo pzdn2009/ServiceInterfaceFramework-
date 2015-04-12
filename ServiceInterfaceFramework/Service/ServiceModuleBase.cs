@@ -73,7 +73,7 @@ namespace ServiceInterfaceFramework.Service
             }
             catch (Exception ex)
             {
-                LogHelper.WriteError(ex);
+                LogHelper.Error(ex);
             }
         }
 

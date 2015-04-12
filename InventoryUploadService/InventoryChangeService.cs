@@ -19,14 +19,13 @@ namespace InventoryUploadService
             if (!callbackList.Contains(callback))
                 callbackList.Add(callback);
 
-            Observers.Add(OperationContext.Current.SessionId, callback);
+            Observers.Add(EServiceType.service1, callback);
         }
 
         public string GetData(string value)
         {
-            var callback = Observers.Get(OperationContext.Current.SessionId);
+            var callback = OperationContext.Current.GetCallbackChannel<IMessageCallback>();
             callback.Notify(string.Format("You entered: {0}", value), DateTime.Now);
-            callback.Notify(string.Format("现在队列有{0}个callback,id is {1}", Observers.Count(), OperationContext.Current.SessionId), DateTime.Now);
 
             return string.Format("You entered: {0}", value);
         }

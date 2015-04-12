@@ -19,8 +19,7 @@ namespace ServiceInterfaceFramework.Winform
 
         private void button1_Click(object sender, EventArgs e)
         {
-            WinServiceMgr mgr = new WinServiceMgr();
-            mgr.ShowDialog();
+            this.tabPage1.Controls.Add(new ucWinServiceMgr() { Dock = DockStyle.Fill });
         }
     }
 }

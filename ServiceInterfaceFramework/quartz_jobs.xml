@@ -1,0 +1,26 @@
+﻿<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+  <processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+  <schedule>
+    <!--库存上传-->
+    <job>
+      <name>InventoryUpLoad</name>
+      <group>MainBusiness</group>
+      <description>库存上传服务</description>
+      <job-type>ServiceInterfaceFramework.InventoryUpLoadService, ServiceInterfaceFramework</job-type>
+      <durable>false</durable>
+      <recover>true</recover>
+    </job>
+    <trigger>
+      <cron>
+        <name>InventoryUpLoadTrigger</name>
+        <group>InventoryUpLoadTrigger</group>
+        <description>每天14点，每隔20秒执行一次</description>
+        <job-name>InventoryUpLoad</job-name>
+        <job-group>MainBusiness</job-group>
+        <cron-expression>0/20 * 14 * * ?</cron-expression>
+      </cron>
+    </trigger>
+  </schedule>
+</job-scheduling-data>

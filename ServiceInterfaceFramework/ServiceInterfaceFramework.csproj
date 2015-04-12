@@ -52,6 +52,17 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.3.1.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.Core.3.1.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net1211">
+      <HintPath>..\packages\Common.Logging.Log4Net1211.3.1.0\lib\net40\Common.Logging.Log4Net1211.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\NPOI.2.0.6\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -74,6 +85,9 @@
     </Reference>
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>..\packages\NPOI.2.0.6\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>..\packages\Quartz.2.3.2\lib\net40\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -105,11 +119,21 @@
     <Compile Include="Common\DataTableUtils.cs" />
     <Compile Include="Configuration\ConfigBase.cs" />
     <Compile Include="Configuration\DemoConfig.cs" />
+    <Compile Include="EServiceStatus.cs" />
     <Compile Include="EventArg\NotifyArgs.cs" />
     <Compile Include="Exceptions\ServiceInterfaceFrameworkException.cs" />
     <Compile Include="Extensions\DictionaryExtension.cs" />
+    <Compile Include="Common\FtpHelper.cs" />
+    <Compile Include="Host.cs" />
     <Compile Include="IBLL.cs" />
     <Compile Include="IDAL.cs" />
+    <Compile Include="JobCronExpressionConfig.cs" />
+    <Compile Include="Common\Retry.cs" />
+    <Compile Include="QuartzCodeStyle\SampleBuilder.cs" />
+    <Compile Include="QuartzCodeStyle\Key.cs" />
+    <Compile Include="QuartzCodeStyle\SampleKey.cs" />
+    <Compile Include="QuartzCodeStyle\ISampleProduct.cs" />
+    <Compile Include="ServiceManager.cs" />
     <Compile Include="Service\EUnitType.cs" />
     <Compile Include="Exceptions\ServiceException.cs" />
     <Compile Include="DAL\IRepository.cs" />
@@ -185,11 +209,15 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="quartz.config" />
     <None Include="WindowService\Script\Install.bat" />
     <None Include="Model\Main.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -202,7 +230,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppConfigSample%28wcf-s,quartz,log4net%29.txt" />
     <Content Include="Configuration\CustomConfig.xml" />
+    <Content Include="quartz_jobs.xml" />
     <Content Include="read me.txt" />
     <Content Include="SQLScripts\create.sql" />
     <Content Include="SQLScripts\update.sql" />

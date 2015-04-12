@@ -1,68 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ServiceInterfaceFramework;
 using System.ServiceProcess;
+using System.Threading.Tasks;
 
 namespace ServiceInterfaceFramework.Winform
 {
-    public partial class WinServiceMgr : Form
+    public partial class ucWinServiceMgr : UserControl
     {
-        public WinServiceMgr()
+        public ucWinServiceMgr()
         {
             InitializeComponent();
-            btnInstall.Enabled = false;
-            btnUnInstall.Enabled = false;
-            btnStatus.Enabled = false;
-            labStatus.Text = "";
-            labMsg.Text = "";
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.DoubleBuffer, true);
         }
 
         public string ServiceName { get { return txtServiceName.Text.Trim(); } set { this.txtServiceName.Text = value; } }
 
         private void btnQuery_Click(object sender, EventArgs e)
         {
-            if (WinServiceControl.Existed(ServiceName))
-            {
-                this.btnQuery.Enabled = false;
-
-                btnInstall.Enabled = false;
-                btnUnInstall.Enabled = true;
-                btnStatus.Enabled = true;
-
-                labStatus.Text = GetStaus();
-            }
-            else
-            {
-                this.btnQuery.Enabled = true;
-
-                btnInstall.Enabled = true;
-                btnUnInstall.Enabled = false;
-                btnStatus.Enabled = false;
-                MessageBox.Show(string.Format("{0}不存在", ServiceName));
-            }
+            GetLastestStatus();
         }
 
         private void btnInstall_Click(object sender, EventArgs e)
         {
             InstallOrUnInstallService(ServiceName, true);
+            GetLastestStatus();
         }
 
         private void btnUnInstall_Click(object sender, EventArgs e)
         {
             InstallOrUnInstallService(ServiceName, false);
+            GetLastestStatus();
         }
 
         private void InstallOrUnInstallService(string serviceName, bool install)
         {
             var ofd = new OpenFileDialog();
-            if(ofd.ShowDialog()!= System.Windows.Forms.DialogResult.OK)
+            if (ofd.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
                 return;
             }
@@ -94,11 +73,6 @@ namespace ServiceInterfaceFramework.Winform
                     labMsg.Text = "服务【" + serviceName + "】卸载失败，请检查日志！";
                 }
             }
-        }
-
-        private void btnStatus_Click(object sender, EventArgs e)
-        {
-            this.labStatus.Text = GetStaus();
         }
 
         private string GetStaus()
@@ -144,11 +118,62 @@ namespace ServiceInterfaceFramework.Winform
         private void btnStart_Click(object sender, EventArgs e)
         {
             WinServiceControl.Run(ServiceName);
+            GetLastestStatus();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
             WinServiceControl.Stop(ServiceName);
+            GetLastestStatus();
+        }
+
+        private void ucWinServiceMgr_Load(object sender, EventArgs e)
+        {
+            GetLastestStatus();
+
+            Task task = new Task(() =>
+            {
+                while (true)
+                {
+                    int num = 3;
+                    while (num-- != 0)
+                    {
+                        labStatus.Text = string.Format("update status after {0} seconds...... ", num);
+                        System.Threading.Thread.Sleep(1000);
+                        labStatus.Text = "";
+                    }
+
+                    GetLastestStatus();
+
+                    System.Threading.Thread.Sleep(5000);
+                    labMsg.Text = "";
+                }
+            });
+            task.Start();
+            this.labStatus.Text = GetStaus();
+        }
+
+        private void GetLastestStatus()
+        {
+            if (WinServiceControl.Existed(ServiceName))
+            {
+                btnInstall.Enabled = false;
+                btnUnInstall.Enabled = true;
+
+                labStatus.Text = GetStaus();
+            }
+            else
+            {
+                btnInstall.Enabled = true;
+                btnUnInstall.Enabled = false;
+
+                if (this.Visible)
+                {
+                    this.labMsg.Text = string.Format("{0}不存在", ServiceName);
+                    this.labMsg.ForeColor = Color.Red;
+                    //MessageBox.Show();
+                }
+            }
         }
     }
 }

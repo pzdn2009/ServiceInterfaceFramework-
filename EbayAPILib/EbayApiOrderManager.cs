@@ -31,7 +31,7 @@ namespace EbayAPILibrary
 
             if (ebayConfigs == null || ebayConfigs.Count() == 0)
             {
-                LogHelper.WriteDebug(EbayLogMessage.NO_API_CONFIG);
+                LogHelper.Debug(EbayLogMessage.NO_API_CONFIG);
                 return;
             }
 
@@ -53,7 +53,7 @@ namespace EbayAPILibrary
                 grt.CreateTimeFrom = DateTime.UtcNow.AddDays(-spanDays);
                 grt.CreateTimeTo = DateTime.UtcNow;                    //最后下单时间
 
-                LogHelper.WriteDebug(EbayLogMessage.BEGIN_WHILE);
+                LogHelper.Debug(EbayLogMessage.BEGIN_WHILE);
 
                 MakeDoWhile(apiCall, grt, ebayConfig);
             }
@@ -69,16 +69,16 @@ namespace EbayAPILibrary
                 pagetype.PageNumber = pagenum++;
                 apiCall.Pagination = pagetype;
 
-                LogHelper.WriteDebug(EbayLogMessage.BEGIN_DOWNLOAD);
+                LogHelper.Debug(EbayLogMessage.BEGIN_DOWNLOAD);
 
                 //获取API订单
                 var orders = ((GetOrdersResponseType)apiCall.ExecuteRequest(grt)).OrderArray;
 
-                LogHelper.WriteDebug(EbayLogMessage.END_DOWNLOAD);
+                LogHelper.Debug(EbayLogMessage.END_DOWNLOAD);
 
                 if (orders.Count == 0)
                 {
-                    LogHelper.WriteDebug(EbayLogMessage.NO_ORDERS);
+                    LogHelper.Debug(EbayLogMessage.NO_ORDERS);
                     return;
                 }
 
@@ -120,7 +120,7 @@ namespace EbayAPILibrary
             DistributionTransactionScopeBlock.New(() =>
             {
                 //dataOrderRepository.Save(orderDto);
-                LogHelper.WriteDebug("EBAY获取订单成功,订单ID：" + orderDto.OrderID);
+                LogHelper.Debug("EBAY获取订单成功,订单ID：" + orderDto.OrderID);
             });
         }
     }

@@ -234,7 +234,7 @@ namespace ServiceInterfaceFramework.Common
             }
             catch (Exception ex)
             {
-                LogHelper.WriteError(ex);
+                LogHelper.Error(ex);
                 throw ex;
             }
         }

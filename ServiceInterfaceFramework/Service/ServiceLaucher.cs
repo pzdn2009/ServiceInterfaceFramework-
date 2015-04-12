@@ -102,7 +102,7 @@ namespace ServiceInterfaceFramework.Service
 
                 if (dictServices.ContainsKey(serviceName))
                 {
-                    LogHelper.WriteDebug(string.Format("Service {0} 已经在运行了...", serviceName));
+                    LogHelper.Debug(string.Format("Service {0} 已经在运行了...", serviceName));
                     return;
                 }
 
@@ -132,7 +132,7 @@ namespace ServiceInterfaceFramework.Service
                 {
                     dictServices[serviceName].Stop();
                     dictServices.Remove(serviceName);
-                    LogHelper.WriteDebug(string.Format("Service {0} 已经在移除了...", serviceName));
+                    LogHelper.Debug(string.Format("Service {0} 已经在移除了...", serviceName));
                     return;
                 }
             });
@@ -165,7 +165,7 @@ namespace ServiceInterfaceFramework.Service
 
                     proxy.Start();
                 }
-                LogHelper.WriteDebug(string.Format("Service {0} started at StartService", serviceElement.Name));
+                LogHelper.Debug(string.Format("Service {0} started at StartService", serviceElement.Name));
             });
         }
 
@@ -181,7 +181,7 @@ namespace ServiceInterfaceFramework.Service
                         dictServices.Remove(serviceElement.Name);
                     }
                 }
-                LogHelper.WriteDebug(string.Format("Service {0} started at StopService", serviceElement.Name));
+                LogHelper.Debug(string.Format("Service {0} started at StopService", serviceElement.Name));
             });
         }
 
@@ -197,7 +197,7 @@ namespace ServiceInterfaceFramework.Service
                         return proxy.Stauts;
                     }
                 }
-                LogHelper.WriteDebug(string.Format("Service {0} started at QueryStatus", serviceName));
+                LogHelper.Debug(string.Format("Service {0} started at QueryStatus", serviceName));
                 return null;
             });
         }

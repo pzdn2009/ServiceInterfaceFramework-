@@ -1,5 +1,15 @@
 ﻿服务接口开发要点拾遗
 
+V2(new):
+1.win服务管理界面；
+2.quartz配置sample，以及manager;
+3.运行时更改cronExpression；
+4.cron editor；
+5.ftphelper;
+6.common.logging.core的引用 与 log4net Adapter，并修改LogHelper
+7.quartz code style study : key & builder
+
+V1:
 1.XML读写（配置文件以及自定义XML）；
 2.服务组件（轮训定时+线程）；
 3.资源文件（Resource，管理字符、图片等）；
@@ -15,3 +25,5 @@
 
 13.服务流程组织接口（整个服务将遵循接口进行开发和扩展）；
 14.请求响应消息适配组件（对第三方API的适配）。
+
+
